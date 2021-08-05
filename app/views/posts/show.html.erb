@@ -1,0 +1,6 @@
+<h1>id: <%= @post.id %> 投稿詳細ページ</h1>
+<p>タイトル：<%= @post.title %></p>
+<p>内容：<%= @post.content %></p>
+
+<%= link_to '一覧戻る', posts_path, class: 'btn btn-outline-secondary' %>
+<%= link_to 'この投稿を削除する', @post, class: 'btn btn-outline-danger', method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
