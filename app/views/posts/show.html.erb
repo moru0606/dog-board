@@ -1,5 +1,6 @@
 <h1>id: <%= @post.id %> 投稿詳細ページ</h1>
 <p>タイトル：<%= @post.title %></p>
+<p><%= image_tag @post.image.url, size: "150x150" if @post.image? %></p>
 <p>内容：<%= @post.content %></p>
 
 <%= link_to '一覧戻る', posts_path, class: 'btn btn-outline-secondary' %>

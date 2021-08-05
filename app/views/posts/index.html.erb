@@ -2,6 +2,7 @@
 
 <ul>
   <% @posts.each do |post| %>
+    <li><%= image_tag post.image.url, size: "150x150" if post.image? %></li>
     <li>タイトル：<%= link_to post.title, post %></li>
     <li>内容：<%= link_to post.id, post %> : <%= post.content %></li>
   <% end %>
