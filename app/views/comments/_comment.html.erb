@@ -1,0 +1,10 @@
+ <p>
+    <strong>コメント:</strong>
+    <%= comment.comment %>
+  </p>
+<p>
+  <%= link_to '削除', [comment.post, comment],class: 'btn btn-outline-danger',
+              method: :delete,
+              data: { confirm: "本当に削除してもよろしいですか？" } %>
+</p>
+  
