@@ -6,8 +6,6 @@
 <%= link_to '一覧戻る', posts_path, class: 'btn btn-outline-secondary' %>
 <%= link_to 'この投稿を削除する', @post, class: 'btn btn-outline-danger', method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
 
- 
-  
 <div class="comment_list">
   <h4 class="comment_count"><%= @post.comments.length %>件のコメント</h4>
   <%= render @post.comments %>

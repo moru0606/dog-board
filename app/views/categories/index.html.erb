@@ -1,0 +1,22 @@
+<ul>
+    <% @categories.each do |category| %>
+        <%= category.name %>
+    <% end %>
+</ul>
+
+<div class="top__items">
+  <h1>カテゴリー一覧</h1>
+</div>
+
+
+
+  <table class="table table-hover">
+    <tbody>
+      <% @categories.each do |cate| %>
+        <tr>
+          <td><%= link_to cate.name, posts_path(category_id: cate.id) %></td>
+          <td><%= cate.created_at.to_s(:datetime_jp) %>作成</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
