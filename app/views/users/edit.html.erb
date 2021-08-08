@@ -1,4 +1,16 @@
 <h1><%= @user.name %> 編集ページ</h1>
-<p>画像選択</p>
-<p>プロフィール入力</p>
-<p>更新ボタン</p>
+<h3>画像選択</h3>
+<%= form_with(model: @user) do |f| %>
+  <% if @user.image? %>
+    <%= image_tag @user.image.url, class: "rounded-circle", size: "150x150" %>
+  <% else %>
+    <%= image_tag "default.png", size: "150x150" %>
+  <% end %>
+<div class="form-group">
+<%= f.label :profile, 'プロフィール（255文字未満）' %>
+<%= f.text_area :profile, :maxlength => "255", :size => "80x5",  class: 'form-control'  %>
+</div>
+  <%= f.file_field :image %>
+  <%= f.submit 'プロフィール編集を完了する', class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'user',users_path %>
