@@ -1,11 +1,33 @@
  <p><%= image_tag @comment.image.url, size: "150x150" if @comment.image? %></p>
- <p>
-    <strong>コメント:</strong>
-    <%= comment.comment %>
-  </p>
-<p>
-  <%= link_to '削除', [comment.post, comment],class: 'btn btn-outline-danger',
+ <ul class="list-unstyled mt-2">
+    <li class="d-flex">
+        <p><% if comment.user.image? %>                                                              
+             <%= image_tag comment.user.image.url, class: "rounded-circle", size: "80x80" %>
+             <!--##画像が設定されてない場合-->
+           <% else %>
+             <%= image_tag "default.png", size: "80x80" %>
+           <% end %>
+        </p>
+        <div>
+        <div>
+          <p><%= comment.user.name %></p>
+            </div>
+              <div>
+                <p>
+                <strong>コメント:</strong>
+                <h5><%= comment.comment %></h5>
+               </p>
+            </div>
+        </div>
+    </li>
+</ul>
+ <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+ 
+  <button class="btn" type="button"><%= link_to '削除', [comment.post, comment],class: 'btn btn-outline-danger',
               method: :delete,
-              data: { confirm: "本当に削除してもよろしいですか？" } %>
-</p>
-  
+              data: { confirm: "本当に削除してもよろしいですか？" } %></button>
+</div>
+<Hr>
+ 
+ 
+ 

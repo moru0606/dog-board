@@ -1,14 +1,19 @@
-<h1>id: <%= @post.id %> 投稿詳細ページ</h1>
-<p>タイトル：<%= @post.title %></p>
+<h1 class="text-center">id: <%= @post.id %> 投稿詳細ページ</h1>
+
+<h4 class="text-center">タイトル：<%= @post.title %></h4>
 <p><%= image_tag @post.image.url, size: "150x150" if @post.image? %></p>
-<p>内容：<%= @post.content %></p>
+<p><%= @post.user.name %></p>
+<h5>内容：<%= @post.content %></h5>
 
 <%= link_to '一覧戻る', posts_path, class: 'btn btn-outline-secondary' %>
 <%= link_to 'この投稿を削除する', @post, class: 'btn btn-outline-danger', method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
 
 <div class="comment_list">
-  <h4 class="comment_count"><%= @post.comments.length %>件のコメント</h4>
+  <p class="comment_count"><%= @post.comments.length %>件のコメント数</p>
+  <Hr>
+  <p>
   <%= render @post.comments %>
+  </p>
 </div> 
 
 

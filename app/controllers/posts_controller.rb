@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_action :require_user_logged_in?
+  before_action :correct_user, only: [:destroy]
+
   def index
     @posts = params[:category_id].present? ? Category.find(params[:category_id]).posts.order('id DESC') : Post.order('id DESC')
   end
@@ -13,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = '投稿されました'
       redirect_to @post
@@ -24,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
     @post.destroy
     flash[:success] = '投稿は削除されました'
     redirect_to posts_url
@@ -35,4 +38,12 @@ private
 
 def post_params
   params.require(:post).permit(:content, :title, :image, :category_id)
+end
+
+def correct_user
+  @post = current_user.posts.find_by(id: params[:id])
+  unless @post
+    flash[:warning] = 'あなたに権限がありません'
+    redirect_to root_url
+  end
 end

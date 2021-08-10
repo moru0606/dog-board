@@ -9,4 +9,5 @@
 
 <h3>プロフィール</h3>
 <h5><%= @user.profile %></h5>
-<%= link_to '編集ページ',edit_user_path(@user) %>
+<%= link_to '編集ページ',edit_user_path(@user),class: 'btn btn-outline-success' %>
+<%= link_to '投稿一覧', posts_path, class: 'btn btn-outline-secondary' %>
