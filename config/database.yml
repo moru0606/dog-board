@@ -49,7 +49,9 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: french_bulldog_posts_production
   username: french_bulldog_posts
   password: <%= ENV['FRENCH_BULLDOG_POSTS_DATABASE_PASSWORD'] %>
