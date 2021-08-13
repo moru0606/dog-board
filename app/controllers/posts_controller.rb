@@ -1,12 +1,15 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :require_user_logged_in?
   before_action :correct_user, only: [:destroy]
 
   def index
-    @posts = params[:category_id].present? ? Category.find(params[:category_id]).posts.order('id DESC') : Post.order('id DESC')
+    @pagy, @posts = pagy(params[:category_id].present? ? Category.find(params[:category_id]).posts.order('id desc') : Post.order('id desc'))
   end
 
   def show
+    @pagy, @posts = pagy(Post.all)
     @post = Post.find(params[:id])
     @comment = Comment.new(post_id: @post.id)
   end

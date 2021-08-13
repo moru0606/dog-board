@@ -1,9 +1,14 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  before_action :require_user_logged_in?, only: %i[show edit]
+  before_action :require_user_logged_in?, only: %i[show edit likes]
   before_action :correct_user, only: [:edit]
 
   def show
     @user = User.find(params[:id])
+    @pagy, @posts = pagy(@user.posts.order(id: :desc))
+    counts(@user)
+    @like_posts = @user.like_posts
   end
 
   def new
@@ -32,6 +37,12 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def likes
+    @user = User.find(params[:id])
+    @pagy, @posts = pagy(@user.posts.order(id: :desc))
+    @like_posts = @user.like_posts
   end
 end
 

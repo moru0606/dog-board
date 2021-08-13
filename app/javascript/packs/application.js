@@ -6,6 +6,6 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import "channels"
-
+import '@fortawesome/fontawesome-free/js/all';
 Rails.start()
 Turbolinks.start()

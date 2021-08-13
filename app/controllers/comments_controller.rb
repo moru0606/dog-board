@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :correct_user, only: [:destroy]
 
@@ -30,8 +32,8 @@ def comment_params
 end
 
 def correct_user
-  @post = current_user.posts.find_by(id: params[:id])
-  unless @post
+  @comment = current_user.comments.find_by(id: params[:id])
+  unless @comment
     flash[:warning] = 'あなたに権限がありません'
     redirect_back(fallback_location: posts_path)
   end
