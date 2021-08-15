@@ -9,8 +9,19 @@
       
       <% @like_posts.each do |post| %>
         <hr>
-         <%= render "likes/like", post: post %>
-        <p><span>お気に入り投稿内容: </span><%= post.user.name %> : <%=link_to post.content, post_path(post.id) %></p>
+      <% if logged_in? %>
+        <% if current_user.like?(post)  %> 
+          <%=link_to post_likes_path(post), method: :delete do %>
+          <i class="fas fa-heart unlike-btn"></i>
+        <% end %>
+        <% else %>
+          <%=link_to post_likes_path(post), method: :post do %>
+          <i class="far fa-heart unlike-btn"></i>
+        <% end %>
+        <% end %>
+      <% end %>
+        
+        <p>お気に入り投稿内容: <%= post.user.name %> : <%=link_to post.content, post_path(post.id) %></p>
       <% end %>
       
   </div>

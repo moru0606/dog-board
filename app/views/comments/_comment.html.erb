@@ -20,13 +20,12 @@
         </div>
     </li>
 </ul>
-<% if logged_in? && current_user.id == comment.user_id %>
- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <% if logged_in? && current_user.id == comment.user_id %>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
  
-  <button class="btn" type="button"><%= link_to '削除', [comment.post, comment],class: 'btn btn-outline-danger',
-              method: :delete,
-              data: { confirm: "本当に削除してもよろしいですか？" } %></button>
-</div>
-<% end %>
-<hr>
- 
+            <button class="btn" type="button"><%= link_to '削除', [comment.post, comment],class: 'btn btn-outline-danger',
+                  method: :delete,
+                  data: { confirm: "本当に削除してもよろしいですか？" } %></button>
+        </div>
+    <% end %>
+
