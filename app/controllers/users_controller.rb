@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :require_user_logged_in?, only: %i[show edit likes]
-  before_action :correct_user, only: [:edit]
+  before_action :correct_user_page, only: [:edit]
 
   def show
     @user = User.find(params[:id])
@@ -50,7 +50,7 @@ def user_params
   params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :profile)
 end
 
-def correct_user
+def correct_user_page
   @user = User.find(params[:id])
   redirect_to(root_url) unless @user == current_user
 end
