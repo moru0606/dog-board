@@ -11,11 +11,15 @@
                        onchange: 'submit(this.form);'
                      } %>
     <% end %>
-   
   </div>
   
 <div class="card">
   <% @posts.each do |post| %>
+  
+    <% if logged_in? && current_user.id == post.user_id %>
+        <%= link_to 'この投稿を削除する', @post, class: 'btn btn-outline-danger', method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+    <% end %>
+
   <div class="card-header">
      <%= link_to post.user.name, user_path(post.user), class: "text-decoration-none" %> <span class="text-muted">投稿日時 <%= post.created_at %></span>
   </div>
@@ -30,6 +34,6 @@
  </div>
  
    <% end %>
-   <%== pagy_bootstrap_nav(@pagy) %>
+   
 </div>
 

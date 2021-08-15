@@ -2,14 +2,13 @@
 
 class PostsController < ApplicationController
   before_action :require_user_logged_in?
-  before_action :correct_user, only: [:destroy]
+  before_action :unsuer_correct_user, only: [:destroy]
 
   def index
     @pagy, @posts = pagy(params[:category_id].present? ? Category.find(params[:category_id]).posts.order('id desc') : Post.order('id desc'))
   end
 
   def show
-    @pagy, @posts = pagy(Post.all)
     @post = Post.find(params[:id])
     @comment = Comment.new(post_id: @post.id)
   end
@@ -43,7 +42,7 @@ def post_params
   params.require(:post).permit(:content, :title, :image, :category_id)
 end
 
-def correct_user
+def unsuer_correct_user
   @post = current_user.posts.find_by(id: params[:id])
   unless @post
     flash[:warning] = 'あなたに権限がありません'

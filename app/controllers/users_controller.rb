@@ -7,8 +7,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @pagy, @posts = pagy(@user.posts.order(id: :desc))
-    counts(@user)
-    @like_posts = @user.like_posts
   end
 
   def new
@@ -54,8 +52,5 @@ end
 
 def correct_user
   @user = User.find(params[:id])
-  unless @user
-    flash[:warning] = 'あなたに権限がありません'
-    redirect_to root_url
-  end
+  redirect_to(root_url) unless @user == current_user
 end

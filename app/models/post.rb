@@ -9,6 +9,7 @@ class Post < ApplicationRecord
   has_many :like_users, through: :likes, source: :user
   belongs_to :user
 
-  validates :title, presence: true
+  validates :title, presence: true, length: {maximum: 50 }
+  validates :content, presence: true, length: { maximum: 255 }
   validates :content, presence: true, length: { minimum: 10 }
 end

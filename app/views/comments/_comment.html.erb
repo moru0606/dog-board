@@ -1,5 +1,4 @@
- <p><%= image_tag @comment.image.url, size: "150x150" if @comment.image? %></p>
- <ul class="list-unstyled mt-2">
+<ul class="list-unstyled mt-2">
     <li class="d-flex">
         <p><% if comment.user.image? %>                                                              
              <%= image_tag comment.user.image.url, class: "rounded-circle", size: "80x80" %>
@@ -21,13 +20,15 @@
         </div>
     </li>
 </ul>
+<% if logged_in? && current_user.id == comment.user_id %>
  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
  
   <button class="btn" type="button"><%= link_to '削除', [comment.post, comment],class: 'btn btn-outline-danger',
               method: :delete,
               data: { confirm: "本当に削除してもよろしいですか？" } %></button>
 </div>
-<Hr>
+<% end %>
+<hr>
  
  
  

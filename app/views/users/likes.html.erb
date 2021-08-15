@@ -11,8 +11,5 @@
         <p><span>お気に入り投稿内容: </span><%= post.user.name %> : <%=link_to post.content, post_path(post.id) %></p>
       <% end %>
   </div>
-  
-  <%== pagy_bootstrap_nav(@pagy) %>
-  
+  </div>
     <%= link_to '一覧戻る', posts_path, class: 'btn btn-outline-secondary' %>
-
