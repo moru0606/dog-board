@@ -6,9 +6,10 @@
   </div>
   <div class="card-body">
     <p>お気に入り一覧</p>
-     
+      
       <% @like_posts.each do |post| %>
         <hr>
+         <%= render "likes/like", post: post %>
         <p><span>お気に入り投稿内容: </span><%= post.user.name %> : <%=link_to post.content, post_path(post.id) %></p>
       <% end %>
       

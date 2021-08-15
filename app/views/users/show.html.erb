@@ -21,5 +21,8 @@
         <% end %>
   </div>
 </div>
+
+<% if @user.id == current_user.id %>
   <%= link_to '編集ページ',edit_user_path(@user),class: 'btn btn-outline-success' %>
+  <% end %>
   <%= link_to '投稿一覧', posts_path, class: 'btn btn-outline-secondary' %>
