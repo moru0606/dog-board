@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       flash[:success] = 'ログインしました。'
       redirect_to @user
     else
-      flash.now[:danger] = 'ログイン出来ませんでした。'
+      flash[:danger] = 'メールアドレスまたはパスワードが正しくありません'
       render :new
     end
   end

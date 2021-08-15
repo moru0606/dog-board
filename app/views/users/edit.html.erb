@@ -1,6 +1,8 @@
 <h1><%= @user.name %> 編集ページ</h1>
   <h3>画像選択</h3>
+ 
     <%= form_with(model: @user) do |f| %>
+     <%= render 'layouts/error_messages', model: f.object %>
       <% if @user.image? %>
         <%= image_tag @user.image.url, class: "rounded-circle", size: "150x150" %>
       <% else %>

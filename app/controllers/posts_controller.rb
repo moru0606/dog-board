@@ -27,9 +27,8 @@ class PostsController < ApplicationController
       render :new
     end
   end
-
+  
   def destroy
-    @post = current_user.posts.find(params[:id])
     @post.destroy
     flash[:success] = '投稿は削除されました'
     redirect_to posts_url
