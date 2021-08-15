@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :unsuer_correct_user, only: [:destroy]
 
   def index
-    @pagy, @posts = pagy(params[:category_id].present? ? Category.find(params[:category_id]).posts.order('id desc') : Post.order('id desc'))
+    @pagy, @posts = pagy(params[:category_id].present? ? Category.find(params[:category_id]).posts.order(id: :desc) : Post.order(id: :desc))
   end
 
   def show

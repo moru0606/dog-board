@@ -6,7 +6,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @pagy, @posts = pagy(@user.posts.order(id: :desc))
+    @posts = @user.posts
+    # @pagy, @posts = pagy(@user.posts.order(id: :desc))
   end
 
   def new
