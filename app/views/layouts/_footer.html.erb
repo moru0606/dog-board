@@ -1,0 +1,14 @@
+<footer class="footer">
+    
+    <small>
+        &copy;french_bulldog_posts |
+   
+    <% if current_user %>
+        <%= link_to 'マイページ', @current_user %>
+        <%= link_to 'ログアウト',logout_path, method: :delete %>
+    <% else %>
+        <%= link_to '新規登録', signup_path %>
+        <%= link_to 'ログイン', login_path %>
+    <% end %>
+    </small>
+</footer>
