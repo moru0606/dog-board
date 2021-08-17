@@ -1,22 +1,24 @@
 <h1 class="text-center">id: <%= @post.id %> 投稿詳細ページ</h1>
+<Hr>
 
-
-<h4 class="text-center">タイトル：<%= @post.title %></h4>
+<h4>タイトル：<%= @post.title %></h4>
 <p><%= image_tag @post.image.url, size: "150x150" if @post.image? %></p>
-<p><%= @post.user.name %></p>
+<h5><%= @post.user.name %> : <%= @post.created_at %></h5>
 <h5>内容：<%= @post.content %></h5>
 
 <%= link_to '一覧戻る', posts_path, class: 'btn btn-outline-secondary' %>
 
-
+<p><%=  @post.impressionist_count %> views</p>
 <div class="comment_list">
   <p class="comment_count"><%= @post.comments.length %>件のコメント数</p>
+  
   <Hr>
   <p>
   <%= render @post.comments %>
   </p>
-   
+  
 </div> 
+
 <h2>コメント投稿:</h2>
 <%= render "comments/form" %>
 

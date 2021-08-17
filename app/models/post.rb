@@ -2,7 +2,8 @@
 
 class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
-
+  is_impressionable counter_cache: true
+  
   has_many :comments, dependent: :destroy
   has_many :categories
   has_many :likes, dependent: :destroy
