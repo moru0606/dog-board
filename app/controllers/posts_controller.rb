@@ -28,7 +28,7 @@ class PostsController < ApplicationController
       render :new
     end
   end
-  
+
   def destroy
     @post.destroy
     flash[:success] = '投稿は削除されました'
