@@ -13,4 +13,60 @@
  *= require_tree .
  *= require_self
  */
- 
+ .container{
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 120px;
+    box-sizing: border-box;
+}
+
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.8em;
+  letter-spacing: -1px;
+  font-family: HiraKakuProN-W6;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #444;
+}
+
+p {
+  font-size: 1.3em;
+  line-height: 1.7em;
+}
+p2{
+    padding-left: 90px;
+    letter-spacing: 3px;
+    font-family: "Comic Sans MS";
+    
+}
+.main{
+    padding-top:10px;
+    padding-bottom:20px;
+    background-color:#CCC;
+}
+
+p btn{
+    transition: .4s;
+    color:black;
+    float: left;
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer small {
+  float: left;
+}

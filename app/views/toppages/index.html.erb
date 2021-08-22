@@ -1,21 +1,22 @@
 <% if logged_in? %>
-<P>ログイン完了ユーザ<%= current_user.name %></p>
+<p>ログイン完了ユーザ<%= current_user.name %></p>
  <div class="row">
-   
     <div class="col-sm-8">
       <%= render 'posts/posts', posts: @posts %>
     </div>
   </div>
-  
 <% else %>
-
-<div class="bg-secondary p-3 p-sm-5 my-4 rounded" >
-  <div class="text-center text-white">
-    <h1>French Bulldog Posts</h1>
-    
-    <h3>可愛いけど飼うのが大変だったりする<br>フレンチブルドッグに関する様々な情報を共有しよう</h3>
-    
-    <p><%= link_to '今すぐ新規登録！', signup_path, class: 'btn-btn-lg btn-primary' %></p>
+  <div class="main">
+    <h1 class="masthead-heading text-uppercase mb-0">French Bulldog Posts</h1>
+    <%= image_tag 'topimage.jpg', width: '100%', height: '80%'%>
+    <p2>I don't have time to worry about who doesn't like me.   I'm too busy loving the people who love me.</p2><i class="fas fa-heart"></i>
+    <div class="p-3 p-sm-5 my-4 rounded" >
+      <div class="text-center text-brack">
+      
+      <h3>可愛いけど飼うのが大変だったりする<br>フレンチブルドッグに関する様々な情報をみんなで共有しよう</h3>
+      
+      <p><%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %></p>
+      </div>
+  <% end %>
+    </div>
   </div>
-<% end %>
-</div>
