@@ -49,15 +49,24 @@ p2{
     
 }
 .main{
-    padding-top:10px;
-    padding-bottom:20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
     background-color:#CCC;
 }
 
-p btn{
-    transition: .4s;
-    color:black;
-    float: left;
+.like-btn{
+  font-size: 18px;
+  color: #8899a6;
+ 
+}
+.unlike-btn{
+  font-size: 18px;
+  color: #e54747;
+  
+}
+
+a{
+  text-decoration: none;
 }
 
 footer {

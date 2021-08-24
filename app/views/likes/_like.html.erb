@@ -1,14 +1,13 @@
 <% if logged_in? %>
   <% if current_user.like?(post)  %> 
       <%=link_to post_likes_path(post), method: :delete do %>
-      <i class="fas fa-heart unlike-btn"></i>
+        <i class="fas fa-heart unlike-btn"></i>
       <% end %>
   <% else %>
       <%=link_to post_likes_path(post), method: :post do %>
-      <i class="far fa-heart unlike-btn"></i>
+        <i class="fas fa-heart like-btn"></i>
+      <% end %>
   <% end %>
-  <% end %>
-
-  <p><span>お気に入り数: </span><%= post.likes.count %></p>
+   <%= post.likes.count %>
 <% end %>
 
