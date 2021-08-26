@@ -1,13 +1,13 @@
-<%= form_with(model:[ @post, @post.comments.build ], local:true) do |form| %>
+<%= form_with(model:[ @post, @post.comments.build ], local:true) do |f| %>
 
     <div class="form-group">
         <p>
-            <%= form.label 'コメント (255文字未満)' %><br>
-            <%= form.text_area :comment,class: 'form-control' %>
+            <%= f.label 'コメント (255文字未満)' %>
+            <%= f.text_area :comment,class: 'form-control' %>
         </p>
     </div>
     <div class="form_action row">
-        <%= form.submit 'コメント投稿',class: 'btn btn-primary' %>
+        <%= f.submit 'コメント投稿',class: 'btn btn-primary' %>
     </div>
     
 <% end %>

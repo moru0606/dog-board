@@ -1,31 +1,27 @@
-<ul class="list-unstyled mt-2">
-    <li class="d-flex">
-        <p><% if comment.user.image? %>                                                              
-             <%= image_tag comment.user.image.url, class: "rounded-circle", size: "80x80" %>
-             <!--##画像が設定されてない場合-->
-           <% else %>
-             <%= image_tag "default.png", size: "80x80" %>
-           <% end %>
-        </p>
-        <div>
-        <div>
-          <p><%= comment.user.name %> :  <%= comment.created_at %></p>
-            </div>
-              <div>
-                <p>
-                <strong>コメント:</strong>
-                <h5><%= comment.comment %></h5>
-               </p>
-            </div>
+<div class="comment-group">
+    <div class="comment_group_item ">
+        <div class="top_item">
+            <% if comment.user.image? %>                                                              
+                <%= image_tag comment.user.image.url, class: "rounded-circle", size: "80x80" %>
+                 <!--##画像が設定されてない場合-->
+            <% else %>
+                 <%= image_tag "default.png", size: "80x80" %>
+            <% end %>
         </div>
-    </li>
-</ul>
-    <% if logged_in? && current_user.id == comment.user_id %>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
- 
-            <button class="btn" type="button"><%= link_to '削除', [comment.post, comment],class: 'btn btn-outline-danger',
-                  method: :delete,
-                  data: { confirm: "本当に削除してもよろしいですか？" } %></button>
+    <div class="comment_box">
+        <div class="item_left">
+         <p><%= comment.user.name %> : <%= comment.created_at %></p>
+            <h5><%= comment.comment %></h5>
         </div>
-    <% end %>
-
+        <div class="item_rigth">
+            <% if logged_in? && current_user.id == comment.user_id %>
+                
+                <button class="btn" type="button"><%= link_to '削除', [comment.post, comment],class: 'btn btn-outline-danger btn-sm',
+                      method: :delete,
+                      data: { confirm: "本当に削除してもよろしいですか？" } %></button>
+            <% end %>
+        </div>
+    </div>
+    </div>
+</div>
+<Hr>

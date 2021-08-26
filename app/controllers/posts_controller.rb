@@ -10,7 +10,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comment = Comment.new(post_id: @post.id)
     impressionist(@post, nil, unique: [:ip_address])
   end
 

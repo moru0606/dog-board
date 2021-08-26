@@ -42,31 +42,68 @@ p {
   font-size: 1.3em;
   line-height: 1.7em;
 }
+
 p2{
     padding-left: 90px;
     letter-spacing: 3px;
     font-family: "Comic Sans MS";
     
 }
+
 .main{
     padding-top: 10px;
     padding-bottom: 20px;
     background-color:#CCC;
 }
 
+.post_bottom_box{
+  display: flex;
+  justify-content: space-between;
+}
+
+.raw_left{
+  display: flex;
+  margin-left: 15px;
+  gap: 14px;
+}
+
+.raw_right{
+  display: flex;
+  align-self: flex-start;
+}
+
 .like-btn{
   font-size: 18px;
   color: #8899a6;
- 
 }
+
 .unlike-btn{
   font-size: 18px;
   color: #e54747;
-  
+}
+
+.fa-comment-dots{
+  color:gray;
+}
+
+.fa-eye{
+  color:gray;
 }
 
 a{
   text-decoration: none;
+}
+
+.comment_group_item{
+  display:flex
+}
+
+.comment_box{
+  display: flex;
+}
+
+.item_rigth{
+  white-space: nowrap
 }
 
 footer {
