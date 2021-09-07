@@ -16,13 +16,12 @@
         </p>
     </div>
     <div class="form_input">
-        <p> <%= f.label :category_id %>
+        <p> <%= f.label :category_id, 'カテゴリー' %>
         
             <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: '選択してください' }, class: 'form-control'%>
         </p>
     </div>
     <div class="form_action row">
         <%= f.submit '投稿', class: 'btn btn-outline-primary' %>
-    </div>
 <% end %>
-
+    </div>

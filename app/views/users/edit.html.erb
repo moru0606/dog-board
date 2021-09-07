@@ -1,5 +1,5 @@
 <h1><%= @user.name %> 編集ページ</h1>
-  <h3>画像選択</h3>
+ 
  
     <%= form_with(model: @user) do |f| %>
      <%= render 'layouts/error_messages', model: f.object %>
@@ -12,8 +12,10 @@
         <%= f.label :profile, 'プロフィール（255文字未満）' %>
         <%= f.text_area :profile, :maxlength => "255", :size => "80x5",  class: 'form-control'  %>
       </div>
+      <div>
         <%= f.file_field :image %>
         <%= f.submit 'プロフィール編集を完了する', class: 'btn btn-primary' %>
+      </div>
     <% end %>
 
   <%= link_to '投稿一覧', posts_path, class: 'btn btn-outline-secondary' %>

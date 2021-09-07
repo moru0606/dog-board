@@ -17,7 +17,7 @@
     
         <% @posts.each do |post| %>
           <hr>
-          <p><span>投稿内容: </span><%=link_to post.content, post_path(post.id) %></p>
+          <p>投稿内容: <%=link_to post.content, post_path(post.id) %></p>
         <% end %>
   </div>
 </div>
