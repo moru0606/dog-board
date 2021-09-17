@@ -44,12 +44,13 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'rails-i18n'
+gem 'fog-aws'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'cloudinary'
 gem 'impressionist'
 gem 'pagy'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :production do
-  gem 'pg', '>= 0.18', '< 2.0'
+  # gem 'pg', '>= 0.18', '< 2.0'
   gem 'unicorn'
 end
